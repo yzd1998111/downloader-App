@@ -11,14 +11,14 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class FeedAdapter extends ArrayAdapter {
+public class FeedAdapter<T extends feedEntry> extends ArrayAdapter {
     private static final String TAG = "feedAdapter";
 
     private final int layoutResource;
     private final LayoutInflater layoutInflater;
-    private List<feedEntry> applications;
+    private List<T> applications;
 
-    public FeedAdapter(@NonNull Context context, int resource, List<feedEntry> applications) {
+    public FeedAdapter(@NonNull Context context, int resource, List<T> applications) {
         super(context, resource);
         this.layoutResource = resource;
         this.layoutInflater = LayoutInflater.from(context);
@@ -43,7 +43,7 @@ public class FeedAdapter extends ArrayAdapter {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        feedEntry currrentApp = applications.get(position);
+        T currrentApp = applications.get(position);
 
         viewHolder.tvName.setText(currrentApp.getName());
         viewHolder.tvArtist.setText(currrentApp.getArtist());

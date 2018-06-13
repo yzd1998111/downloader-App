@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
             parseApplications.parse(s);
 
 //            ArrayAdapter<feedEntry> arrayAdapter = new ArrayAdapter<>(MainActivity.this,R.layout.list_item, parseApplications.getApplications());
-            FeedAdapter feedAdapter = new FeedAdapter(MainActivity.this, R.layout.list_record, parseApplications.getApplications());
+            FeedAdapter<feedEntry> feedAdapter = new FeedAdapter<>(MainActivity.this, R.layout.list_record, parseApplications.getApplications());
             listApps.setAdapter(feedAdapter);
         }
 
